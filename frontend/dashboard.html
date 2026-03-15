@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanje's Bank Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <div class="shell">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="sb-logo">
+                <img src="/Assets/Image/logo (2).png" alt="">
+            </div>
+            <nav class="sb-nav">
+                <div class="nav-item active" data-page="dashboard">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                        <rect x="14" y="14" width="7" height="7" rx="1" />
+                    </svg>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" data-page="transactions">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M8 6l4-4 4 4M16 18l-4 4-4-4M12 2v20" />
+                    </svg>
+                    <span>Transactions</span>
+                </div>
+                <div class="nav-item" data-page="transfer">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                    <span>Transfer</span>
+                </div>
+                <div class="nav-item" data-page="cards">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="5" width="20" height="14" rx="2" />
+                        <line x1="2" y1="10" x2="22" y2="10" />
+                    </svg>
+                    <span>Cards</span>
+                </div>
+                <div class="nav-item" data-page="loans">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                    </svg>
+                    <span>Loans</span>
+                </div>
+                <div class="nav-item" data-page="profile">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="8" r="4" />
+                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+                    </svg>
+                    <span>Profile</span>
+                </div>
+                <div class="nav-item" data-page="support">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01" />
+                    </svg>
+                    <span>Support</span>
+                </div>
+            </nav>
+            <div class="sb-bottom">
+                <div class="logout-btn" id="logout-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" />
+                    </svg>
+                    <span>Logout</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="main">
+
+            <!-- TOP BAR -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <h2 id="page-title">Dashboard</h2>
+                    <p id="page-sub">Welcome back, Admin</p>
+                </div>
+                <div class="topbar-right">
+                    <div class="notif-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--navy)"
+                            stroke-width="2">
+                            <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" />
+                        </svg>
+                        <div class="notif-dot"></div>
+                    </div>
+                    <div class="avatar" id="user-avatar">AD</div>
+                </div>
+            </div>
+
+            <div class="content">
+
+                <!-- ═══ DASHBOARD PAGE ═══ -->
+                <div class="page active" id="page-dashboard">
+
+                    <div class="hero-card">
+                        <div class="hero-row">
+                            <div>
+                                <div class="hero-label">Total Balance</div>
+                                <div class="hero-balance">&#8369; 128,450.00</div>
+                                <div class="hero-acct">Acct No. &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 4821
+                                </div>
+                            </div>
+                            <div class="hero-badge">Savings &#10003;</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-grid">
+                        <div class="stat-card">
+                            <div class="sc-label">Income</div>
+                            <div class="sc-val">&#8369; 42,000</div>
+                            <div class="sc-change up">&#8593; 8.2% this month</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="sc-label">Expenses</div>
+                            <div class="sc-val">&#8369; 18,320</div>
+                            <div class="sc-change down">&#8593; 3.1% this month</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="sc-label">Savings</div>
+                            <div class="sc-val">&#8369; 23,680</div>
+                            <div class="sc-change up">&#8593; 12% this month</div>
+                        </div>
+                    </div>
+
+                    <div class="sec-title">Quick Actions</div>
+                    <div class="qa-grid">
+                        <div class="qa-btn" onclick="goTo('transfer')">
+                            <div class="qa-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--navy2)"
+                                    stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                            <div class="qa-label">Send Money</div>
+                        </div>
+                        <div class="qa-btn" onclick="goTo('transactions')">
+                            <div class="qa-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--navy2)"
+                                    stroke-width="2">
+                                    <path d="M8 6l4-4 4 4M16 18l-4 4-4-4M12 2v20" />
+                                </svg>
+                            </div>
+                            <div class="qa-label">History</div>
+                        </div>
+                        <div class="qa-btn" onclick="goTo('cards')">
+                            <div class="qa-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--navy2)"
+                                    stroke-width="2">
+                                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                                    <line x1="2" y1="10" x2="22" y2="10" />
+                                </svg>
+                            </div>
+                            <div class="qa-label">My Cards</div>
+                        </div>
+                        <div class="qa-btn" onclick="goTo('loans')">
+                            <div class="qa-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--navy2)"
+                                    stroke-width="2">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                                </svg>
+                            </div>
+                            <div class="qa-label">Loans</div>
+                        </div>
+                    </div>
+
+                    <div class="two-col">
+                        <div>
+                            <div class="sec-title">Recent Transactions</div>
+                            <div class="tx-card">
+                                <div class="tx-header">
+                                    <span class="sec-title" style="margin:0;">Latest</span>
+                                    <span onclick="goTo('transactions')">View all &#8594;</span>
+                                </div>
+                                <div class="tx-item">
+                                    <div class="tx-avatar" style="background:#eff6ff;">&#128722;</div>
+                                    <div class="tx-info">
+                                        <div class="tx-name">SM Supermarket</div>
+                                        <div class="tx-date">Today, 10:24 AM</div>
+                                    </div>
+                                    <div class="tx-amt down">- &#8369; 1,240</div>
+                                </div>
+                                <div class="tx-item">
+                                    <div class="tx-avatar" style="background:#f0fdf4;">&#128176;</div>
+                                    <div class="tx-info">
+                                        <div class="tx-name">Salary Deposit</div>
+                                        <div class="tx-date">Mar 14, 9:00 AM</div>
+                                    </div>
+                                    <div class="tx-amt up">+ &#8369; 42,000</div>
+                                </div>
+                                <div class="tx-item">
+                                    <div class="tx-avatar" style="background:#fef3c7;">&#9889;</div>
+                                    <div class="tx-info">
+                                        <div class="tx-name">Meralco Bill</div>
+                                        <div class="tx-date">Mar 13, 2:15 PM</div>
+                                    </div>
+                                    <div class="tx-amt down">- &#8369; 2,850</div>
+                                </div>
+                                <div class="tx-item">
+                                    <div class="tx-avatar" style="background:#fdf4ff;">&#128241;</div>
+                                    <div class="tx-info">
+                                        <div class="tx-name">Globe Telecom</div>
+                                        <div class="tx-date">Mar 12, 11:00 AM</div>
+                                    </div>
+                                    <div class="tx-amt down">- &#8369; 999</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="sec-title">Spending Breakdown</div>
+                            <div class="spend-card">
+                                <div class="spend-item">
+                                    <div class="spend-dot" style="background:#1a2f6e;"></div>
+                                    <div class="spend-label">Food &amp; Grocery</div>
+                                    <div class="spend-bar-wrap">
+                                        <div class="spend-bar" style="width:65%;background:#1a2f6e;"></div>
+                                    </div>
+                                    <div class="spend-pct">65%</div>
+                                </div>
+                                <div class="spend-item">
+                                    <div class="spend-dot" style="background:#2a4fa8;"></div>
+                                    <div class="spend-label">Utilities</div>
+                                    <div class="spend-bar-wrap">
+                                        <div class="spend-bar" style="width:45%;background:#2a4fa8;"></div>
+                                    </div>
+                                    <div class="spend-pct">45%</div>
+                                </div>
+                                <div class="spend-item">
+                                    <div class="spend-dot" style="background:#3b82f6;"></div>
+                                    <div class="spend-label">Telecom</div>
+                                    <div class="spend-bar-wrap">
+                                        <div class="spend-bar" style="width:20%;background:#3b82f6;"></div>
+                                    </div>
+                                    <div class="spend-pct">20%</div>
+                                </div>
+                                <div class="spend-item">
+                                    <div class="spend-dot" style="background:#60a5fa;"></div>
+                                    <div class="spend-label">Transport</div>
+                                    <div class="spend-bar-wrap">
+                                        <div class="spend-bar" style="width:30%;background:#60a5fa;"></div>
+                                    </div>
+                                    <div class="spend-pct">30%</div>
+                                </div>
+                                <div class="spend-item">
+                                    <div class="spend-dot" style="background:#bfdbfe;"></div>
+                                    <div class="spend-label">Others</div>
+                                    <div class="spend-bar-wrap">
+                                        <div class="spend-bar" style="width:15%;background:#bfdbfe;"></div>
+                                    </div>
+                                    <div class="spend-pct">15%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ═══ TRANSACTIONS PAGE ═══ -->
+                <div class="page" id="page-transactions">
+                    <div class="filter-bar">
+                        <input type="text" placeholder="Search transactions...">
+                        <select>
+                            <option>All Types</option>
+                            <option>Income</option>
+                            <option>Expense</option>
+                        </select>
+                        <select>
+                            <option>This Month</option>
+                            <option>Last Month</option>
+                            <option>Last 3 Months</option>
+                        </select>
+                    </div>
+                    <div class="tx-card">
+                        <div class="tx-item">
+                            <div class="tx-avatar" style="background:#eff6ff;">&#128722;</div>
+                            <div class="tx-info">
+                                <div class="tx-name">SM Supermarket</div>
+                                <div class="tx-date">Mar 15, 2026 &bull; Food &amp; Grocery</div>
+                            </div>
+                            <div class="tx-amt down">- &#8369; 1,240.00</div>
+                        </div>
+                        <div class="tx-item">
+                            <div class="tx-avatar" style="background:#f0fdf4;">&#128176;</div>
+                            <div class="tx-info">
+                                <div class="tx-name">Salary Deposit</div>
+                                <div class="tx-date">Mar 14, 2026 &bull; Income</div>
+                            </div>
+                            <div class="tx-amt up">+ &#8369; 42,000.00</div>
+                        </div>
+                        <div class="tx-item">
+                            <div class="tx-avatar" style="background:#fef3c7;">&#9889;</div>
+                            <div class="tx-info">
+                                <div class="tx-name">Meralco Bill</div>
+                                <div class="tx-date">Mar 13, 2026 &bull; Utilities</div>
+                            </div>
+                            <div class="tx-amt down">- &#8369; 2,850.00</div>
+                        </div>
+                        <div class="tx-item">
+                            <div class="tx-avatar" style="background:#fdf4ff;">&#128241;</div>
+                            <div class="tx-info">
+                                <div class="tx-name">Globe Telecom</div>
+                                <div class="tx-date">Mar 12, 2026 &bull; Telecom</div>
+                            </div>
+                            <div class="tx-amt down">- &#8369; 999.00</div>
+                        </div>
+                        <div class="tx-item">
+                            <div class="tx-avatar" style="background:#eff6ff;">&#127968;</div>
+                            <div class="tx-info">
+                                <div class="tx-name">Rent Payment</div>
+                                <div class="tx-date">Mar 10, 2026 &bull; Housing</div>
+                            </div>
+                            <div class="tx-amt down">- &#8369; 12,000.00</div>
+                        </div>
+                        <div class="tx-item">
+                            <div class="tx-avatar" style="background:#f0fdf4;">&#8617;&#65039;</div>
+                            <div class="tx-info">
+                                <div class="tx-name">Refund &mdash; Lazada</div>
+                                <div class="tx-date">Mar 8, 2026 &bull; Refund</div>
+                            </div>
+                            <div class="tx-amt up">+ &#8369; 350.00</div>
+                        </div>
+                        <div class="tx-item">
+                            <div class="tx-avatar" style="background:#fef3c7;">&#128663;</div>
+                            <div class="tx-info">
+                                <div class="tx-name">Grab Transport</div>
+                                <div class="tx-date">Mar 7, 2026 &bull; Transport</div>
+                            </div>
+                            <div class="tx-amt down">- &#8369; 280.00</div>
+                        </div>
+                        <div class="tx-item">
+                            <div class="tx-avatar" style="background:#fdf4ff;">&#9749;</div>
+                            <div class="tx-info">
+                                <div class="tx-name">Starbucks</div>
+                                <div class="tx-date">Mar 6, 2026 &bull; Food &amp; Dining</div>
+                            </div>
+                            <div class="tx-amt down">- &#8369; 320.00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ═══ TRANSFER PAGE ═══ -->
+                <div class="page" id="page-transfer">
+                    <div class="two-col-equal">
+                        <div class="form-card">
+                            <h3>Send Money</h3>
+                            <div class="form-group">
+                                <label>Recipient Account No.</label>
+                                <input type="text" placeholder="e.g. 0012 3456 7890">
+                            </div>
+                            <div class="form-group">
+                                <label>Recipient Name</label>
+                                <input type="text" placeholder="Full name">
+                            </div>
+                            <div class="form-group">
+                                <label>Bank</label>
+                                <select>
+                                    <option>KanjeBank</option>
+                                    <option>BDO</option>
+                                    <option>BPI</option>
+                                    <option>Metrobank</option>
+                                    <option>UnionBank</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Amount (&#8369;)</label>
+                                <input type="number" placeholder="0.00">
+                            </div>
+                            <div class="form-group">
+                                <label>Note (optional)</label>
+                                <input type="text" placeholder="e.g. For rent">
+                            </div>
+                            <button class="submit-btn">Send Money &#8594;</button>
+                        </div>
+                        <div>
+                            <div class="sec-title">Recent Recipients</div>
+                            <div class="tx-card" style="margin-bottom:20px;">
+                                <div class="tx-item">
+                                    <div class="tx-avatar"
+                                        style="background:#eff6ff;font-size:14px;font-weight:800;color:var(--navy2);">JD
+                                    </div>
+                                    <div class="tx-info">
+                                        <div class="tx-name">Juan Dela Cruz</div>
+                                        <div class="tx-date">BPI &bull; &bull;&bull;&bull;&bull; 1234</div>
+                                    </div>
+                                    <div class="send-link">Send</div>
+                                </div>
+                                <div class="tx-item">
+                                    <div class="tx-avatar"
+                                        style="background:#f0fdf4;font-size:14px;font-weight:800;color:#15803d;">MR
+                                    </div>
+                                    <div class="tx-info">
+                                        <div class="tx-name">Maria Reyes</div>
+                                        <div class="tx-date">BDO &bull; &bull;&bull;&bull;&bull; 5678</div>
+                                    </div>
+                                    <div class="send-link">Send</div>
+                                </div>
+                                <div class="tx-item">
+                                    <div class="tx-avatar"
+                                        style="background:#fef3c7;font-size:14px;font-weight:800;color:#b45309;">RC
+                                    </div>
+                                    <div class="tx-info">
+                                        <div class="tx-name">Ramon Cruz</div>
+                                        <div class="tx-date">Metrobank &bull; &bull;&bull;&bull;&bull; 9012</div>
+                                    </div>
+                                    <div class="send-link">Send</div>
+                                </div>
+                            </div>
+                            <div class="sec-title">Pay Bills</div>
+                            <div class="form-card" style="padding:18px 20px;">
+                                <div class="form-group">
+                                    <label>Biller</label>
+                                    <select>
+                                        <option>Meralco</option>
+                                        <option>Manila Water</option>
+                                        <option>Globe</option>
+                                        <option>PLDT</option>
+                                        <option>SSS</option>
+                                        <option>PhilHealth</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Account / Reference No.</label>
+                                    <input type="text" placeholder="Reference number">
+                                </div>
+                                <div class="form-group">
+                                    <label>Amount (&#8369;)</label>
+                                    <input type="number" placeholder="0.00">
+                                </div>
+                                <button class="submit-btn">Pay Bill &#8594;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ═══ CARDS PAGE ═══ -->
+                <div class="page" id="page-cards">
+                    <div class="cards-grid">
+                        <div>
+                            <div class="bank-card" style="background:linear-gradient(135deg,#0d1b3e,#1a2f6e);">
+                                <div class="bank-card-label">KanjeBank Savings</div>
+                                <div class="chip"></div>
+                                <div class="bank-card-num">&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;
+                                    &bull;&bull;&bull;&bull; 4821</div>
+                                <div class="bank-card-row">
+                                    <div class="bank-card-holder">ADMIN USER</div>
+                                    <div class="bank-card-exp">Exp: 08/28</div>
+                                </div>
+                            </div>
+                            <div class="bank-card" style="background:linear-gradient(135deg,#1e3a5f,#2a6fa8);">
+                                <div class="bank-card-label">KanjeBank Credit</div>
+                                <div class="chip"></div>
+                                <div class="bank-card-num">&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;
+                                    &bull;&bull;&bull;&bull; 7743</div>
+                                <div class="bank-card-row">
+                                    <div class="bank-card-holder">ADMIN USER</div>
+                                    <div class="bank-card-exp">Exp: 03/27</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-card">
+                            <h3>Card Details</h3>
+                            <div class="info-card" style="margin-bottom:10px;">
+                                <div class="ic-label">Card Type</div>
+                                <div class="ic-val">Visa Debit &mdash; Savings</div>
+                            </div>
+                            <div class="info-card" style="margin-bottom:10px;">
+                                <div class="ic-label">Available Balance</div>
+                                <div class="ic-val">&#8369; 128,450.00</div>
+                            </div>
+                            <div class="info-card" style="margin-bottom:10px;">
+                                <div class="ic-label">Daily Limit</div>
+                                <div class="ic-val">&#8369; 50,000.00</div>
+                            </div>
+                            <div class="info-card" style="margin-bottom:16px;">
+                                <div class="ic-label">Status</div>
+                                <div class="ic-val" style="color:var(--green);">&#9679; Active</div>
+                            </div>
+                            <div class="card-actions">
+                                <button class="submit-btn">Lock Card</button>
+                                <button class="submit-btn outline-btn">Report Lost</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ═══ LOANS PAGE ═══ -->
+                <div class="page" id="page-loans">
+                    <div class="two-col-loans">
+                        <div>
+                            <div class="sec-title">Active Loans</div>
+                            <div class="loan-card">
+                                <div class="loan-top">
+                                    <div class="loan-name">Personal Loan</div>
+                                    <div class="loan-status status-active">Active</div>
+                                </div>
+                                <div class="loan-amount">&#8369; 50,000.00</div>
+                                <div class="loan-progress">
+                                    <div class="loan-bar" style="width:60%;"></div>
+                                </div>
+                                <div class="loan-meta"><span>60% paid</span><span>&#8369; 20,000 remaining</span></div>
+                                <div class="loan-due">Monthly due: <strong>&#8369; 2,500</strong> &bull; Due: Apr 1,
+                                    2026</div>
+                            </div>
+                            <div class="loan-card">
+                                <div class="loan-top">
+                                    <div class="loan-name">Home Improvement Loan</div>
+                                    <div class="loan-status status-pending">Pending</div>
+                                </div>
+                                <div class="loan-amount">&#8369; 120,000.00</div>
+                                <div class="loan-progress">
+                                    <div class="loan-bar" style="width:10%;"></div>
+                                </div>
+                                <div class="loan-meta"><span>Under review</span><span>Processing...</span></div>
+                            </div>
+                        </div>
+                        <div class="form-card">
+                            <h3>Apply for a Loan</h3>
+                            <div class="form-group">
+                                <label>Loan Type</label>
+                                <select>
+                                    <option>Personal Loan</option>
+                                    <option>Home Loan</option>
+                                    <option>Auto Loan</option>
+                                    <option>Business Loan</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Amount (&#8369;)</label>
+                                <input type="number" placeholder="e.g. 50000">
+                            </div>
+                            <div class="form-group">
+                                <label>Term</label>
+                                <select>
+                                    <option>6 months</option>
+                                    <option>12 months</option>
+                                    <option>24 months</option>
+                                    <option>36 months</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Purpose</label>
+                                <input type="text" placeholder="Brief description">
+                            </div>
+                            <button class="submit-btn">Apply Now &#8594;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ═══ PROFILE PAGE ═══ -->
+                <div class="page" id="page-profile">
+                    <div class="profile-hero">
+                        <div class="profile-avatar">AD</div>
+                        <div>
+                            <div class="profile-name">Admin User</div>
+                            <div class="profile-email">admin@gmail.com</div>
+                            <div class="profile-badge">Savings Account</div>
+                        </div>
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="ic-label">Full Name</div>
+                            <div class="ic-val">Admin User</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="ic-label">Email</div>
+                            <div class="ic-val">admin@gmail.com</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="ic-label">Phone</div>
+                            <div class="ic-val">+63 912 345 6789</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="ic-label">Account No.</div>
+                            <div class="ic-val">&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 4821</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="ic-label">Date Opened</div>
+                            <div class="ic-val">January 5, 2024</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="ic-label">Account Status</div>
+                            <div class="ic-val" style="color:var(--green);">&#9679; Active</div>
+                        </div>
+                    </div>
+                    <div class="form-card">
+                        <h3>Edit Profile</h3>
+                        <div class="form-row">
+                            <div class="form-group"><label>First Name</label><input type="text" value="Admin"></div>
+                            <div class="form-group"><label>Last Name</label><input type="text" value="User"></div>
+                        </div>
+                        <div class="form-group"><label>Email</label><input type="email" value="admin@gmail.com"></div>
+                        <div class="form-group"><label>Phone</label><input type="text" value="+63 912 345 6789"></div>
+                        <div class="form-group"><label>New Password</label><input type="password"
+                                placeholder="Leave blank to keep current"></div>
+                        <button class="submit-btn">Save Changes &#8594;</button>
+                    </div>
+                </div>
+
+                <!-- ═══ SUPPORT PAGE ═══ -->
+                <div class="page" id="page-support">
+                    <div class="two-col-equal">
+                        <div>
+                            <div class="sec-title">Frequently Asked Questions</div>
+                            <div class="faq-item" onclick="this.classList.toggle('open')">
+                                <div class="faq-q">How do I transfer money? <span>+</span></div>
+                                <div class="faq-a">Go to Transfer in the sidebar, fill in the recipient details and
+                                    amount, then click Send Money.</div>
+                            </div>
+                            <div class="faq-item" onclick="this.classList.toggle('open')">
+                                <div class="faq-q">How do I reset my password? <span>+</span></div>
+                                <div class="faq-a">Click "Forgot your password?" on the login screen and follow the
+                                    email verification steps.</div>
+                            </div>
+                            <div class="faq-item" onclick="this.classList.toggle('open')">
+                                <div class="faq-q">How do I apply for a loan? <span>+</span></div>
+                                <div class="faq-a">Go to Loans in the sidebar and fill in the Apply for a Loan form. Our
+                                    team will review within 3-5 business days.</div>
+                            </div>
+                            <div class="faq-item" onclick="this.classList.toggle('open')">
+                                <div class="faq-q">How do I report a lost card? <span>+</span></div>
+                                <div class="faq-a">Go to Cards and click "Report Lost" to immediately freeze your card
+                                    and request a replacement.</div>
+                            </div>
+                        </div>
+                        <div class="form-card">
+                            <h3>Contact Support</h3>
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <select>
+                                    <option>General Inquiry</option>
+                                    <option>Transaction Issue</option>
+                                    <option>Card Problem</option>
+                                    <option>Loan Application</option>
+                                    <option>Account Security</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea placeholder="Describe your concern..."></textarea>
+                            </div>
+                            <button class="submit-btn">Send Message &#8594;</button>
+                            <div class="support-channels">
+                                <div class="support-channels-title">OTHER CHANNELS</div>
+                                <div class="support-phone">&#128222; (02) 8888-1234 <span>&bull; Mon&ndash;Sat
+                                        8AM&ndash;8PM</span></div>
+                                <div class="support-email">&#9993;&#65039; support@kanjebank.com</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /content -->
+        </div><!-- /main -->
+    </div><!-- /shell -->
+
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

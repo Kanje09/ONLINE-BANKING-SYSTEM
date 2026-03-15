@@ -9,37 +9,104 @@
 </head>
 
 <body>
+    <!--Login Form-->
     <div class="container" id="container">
         <div class="form-container-sign-up-container">
-            <button id="signup-btn-for-switch">Switch</button>
             <form action="#">
                 <h1>Create Account</h1>
-                <input type="text" placeholder="Last Name"> <br>
-                <input type="text" placeholder="First Name"> <br>
-                <input type="text" placeholder="Address"> <br>
-                <input type="text" placeholder="Age"> <br>
 
-                <label for="Gender">Gender</label> <br>
-                <input type="radio" name="Gender" id="Gender" value="Male"> <label for="Gender">Male</label> <br>
-                <input type="radio" name="Gender" id="Gender" value="Female"> <label for="Gender">Female</label> <br>
-                <input type="radio" name="Gender" id="Gender" value="Others"> <label for="Gender">Other's</label> <br>
+                <input type="text" placeholder="Last Name">
+                <input type="text" placeholder="First Name">
+                <input type="text" placeholder="Age">
+                <input type="text" placeholder="Email">
 
-                <input type="text" placeholder="Username" id="username"> <br>
-                <input type="password" placeholder="Password" id="password"> <br>
+                <div class="radio-group">
+                    <label class="radio-title">Gender</label>
+                    <label class="radio-option"><input type="radio" name="Gender" value="Male"> Male</label>
+                    <label class="radio-option"><input type="radio" name="Gender" value="Female"> Female</label>
+                    <label class="radio-option"><input type="radio" name="Gender" value="Others"> Others</label>
+                </div>
 
-                <button id="sign-up" class="sign-up-btn">Sign Up</button>
+                <input type="text" placeholder="Username" id="username">
+                <input type="password" placeholder="Password" id="password">
+
+                <button type="button" class="sign-up-btn">Sign Up</button>
             </form>
         </div>
-        <div class="form-container-login-container">
-            <button id="login-btn-for-switch">Login</button>
-            <form action="#">
-                <h1>Login Account</h1>
-                <input type="text" placeholder="Username" id="username-login"> <br>
-                <input type="password" placeholder="Password" id="password-login"> <br>
 
-                <button id="login-btn" class="login-btn">Login</button>
+        <div class="form-container-login-container">
+            <form action="#">
+                <h1>Sign in</h1>
+
+                <input type="text" placeholder="Email" id="username-login">
+                <input type="password" placeholder="Password" id="password-login">
+
+                <a href="#" id="forgot-password" class="forgot-link">Forgot your password?</a>
+                <button type="button" class="login-btn" id="login-btn">Login</button>
             </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+
+                <div class="overlay-panel overlay-left">
+                    <img class="logo" src="/Assets/Image/logo (2).png" alt="Kanje's Online Bank">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="overlay-btn" id="login-btn-for-switch">Login</button>
+                </div>
+
+                <div class="overlay-panel overlay-right">
+                    <img class="logo" src="/Assets/Image/logo (2).png" alt="Kanje's Online Bank">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start your journey with us</p>
+                    <button class="overlay-btn" id="signup-btn-for-switch">Sign Up</button>
+                </div>
+                <div class="forgot-pass" id="forgot-pass-panel">
+                    <img class="logo" src="/Assets/Image/logo (2).png" alt="Logo">
+                    <h1>Forgot Password?</h1>
+
+                    <p id="forgot-msg" class="forgot-msg"></p>
+
+                    <!-- Step 1: Enter email -->
+                    <div id="step-email" class="forgot-step"
+                        style="display:flex; flex-direction:column; align-items:center; width:100%; gap:10px;">
+                        <p style="font-size:0.8rem; color:rgba(255,255,255,0.85); text-align:center; max-width:200px;">
+                            Enter your email and we'll send you a 4-digit code.
+                        </p>
+                        <input type="email" id="forgot-email" placeholder="Your email address" class="overlay-input">
+                        <button class="overlay-btn" id="send-code-btn">Send Code</button>
+                    </div>
+
+                    <!-- Step 2: Enter code -->
+                    <div id="step-code" class="forgot-step"
+                        style="display:none; flex-direction:column; align-items:center; width:100%; gap:10px;">
+                        <p style="font-size:0.8rem; color:rgba(255,255,255,0.85); text-align:center; max-width:200px;">
+                            Enter the 4-digit code sent to your email.
+                        </p>
+                        <input type="text" id="code-input" placeholder="4-digit code" maxlength="4"
+                            class="overlay-input" style="text-align:center; letter-spacing:8px; font-size:1.2rem;">
+                        <button class="overlay-btn" id="verify-code-btn">Verify Code</button>
+                    </div>
+
+                    <!-- Step 3: New password -->
+                    <div id="step-reset" class="forgot-step"
+                        style="display:none; flex-direction:column; align-items:center; width:100%; gap:10px;">
+                        <input type="password" id="new-password" placeholder="New Password" class="overlay-input">
+                        <input type="password" id="confirm-password" placeholder="Confirm Password"
+                            class="overlay-input">
+                        <button class="overlay-btn" id="reset-pass-btn">Reset Password</button>
+                    </div>
+
+                    <button class="overlay-btn" id="back-to-login-btn"
+                        style="margin-top:14px; font-size:0.7rem; padding:8px 24px;">
+                        ← Back to Login
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 
 </html>
